@@ -1,5 +1,7 @@
 # LSQUIC-for-android-implementation
-This is the implementation of litespeedtech's lsquic-client on Android. 이 프로젝트는 litespeedtech사의 lsquic-client를 안드로이드에 이식시킨 것 입니다.
+This is the implementation of litespeedtech's lsquic-client on Android.
+
+이 프로젝트는 litespeedtech사의 lsquic-client를 안드로이드에 이식시킨 것 입니다.
 
 ## Description
 This is the implementation of litespeedtech's lsquic-client on Android.
@@ -11,23 +13,37 @@ This is only tested arm architecture.
 https://github.com/litespeedtech/lsquic-client 에 많은 내용이 잘 기술되어 있습니다.
 아직은 arm아키텍쳐의 장치에서만 작동합니다.
 
-## Usage
+## How to use it
 Since my application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.
+It is really simple to use. Initialize LSQUIC object, then use finishCmd() or finish()
 
-usage example:
+usage example1:
 ```Java
 LSQUIC lsquic = new LSQUIC();
-String result = lsquic.finish_cmd("./http_client -s www.google.com -p /");
+// lsquic.finishCmd returns all response string including headers
+String result = lsquic.finishCmd("./http_client -s www.google.com -p /");
+// if you want to get only body, then you can use lsquic.getResult_body();
+result = lsquic.getResult_body();
+if (result.equals("")) {
+  result = "This web site does not support QUIC.";
+}
+webview.loadData(result, "text/html", "utf-8");   // Initialize your WebView before
 ```
+usage example2:
+```Java
+LSQUIC lsquic = new LSQUIC();
+lsquic.setUrl("www.google.com");
+lsquic.setPort(443);  // default is 443. You don't have to call this method if the port number is 443.
+String result = lsquic.finish();
+// if you want to get only body, then you can use lsquic.getResult_body();
+result = lsquic.getResult_body();
+if (result.equals("")) {
+  result = "This web site does not support QUIC.";
+}
+webview.loadData(result, "text/html", "utf-8");   // Initialize your WebView before
+```
+I'm not recommand use lsquic.finish(). because it is still in limited use. It is recommended to be used after being supplemented later.
 
 Examples of use are well documented at https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt
 
 
-http_client 실행 파일에 wrapping 함수를 만들어 구현해 뒀기 때문에, 명령어를 finish_cmd에 입력만 하면 됩니다.
-
-사용 예시:
-```Java
-LSQUIC lsquic = new LSQUIC();
-String result = lsquic.finish_cmd("./http_client -s www.google.com -p /");
-```
-사용 예시는 https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt 에 잘 나와있습니다.
