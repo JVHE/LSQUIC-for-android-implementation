@@ -15,15 +15,19 @@ https://github.com/litespeedtech/lsquic-client에 많은 내용이 잘 기술되
 Since my application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.
 
 usage example:
+```Java
 LSQUIC lsquic = new LSQUIC();
 String result = lsquic.finish_cmd("./http_client -s www.google.com -p /");
+```
 
 Examples of use are well documented at https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt
+
 
 http_client 실행 파일에 wrapping 함수를 만들어 구현해 뒀기 때문에, 명령어를 finish_cmd에 입력만 하면 됩니다.
 
 사용 예시:
+```Java
 LSQUIC lsquic = new LSQUIC();
 String result = lsquic.finish_cmd("./http_client -s www.google.com -p /");
-
-사용 예시는 https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt에 아주 잘 나와있습니다.
+```
+사용 예시는 https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt에 잘 나와있습니다.
