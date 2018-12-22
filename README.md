@@ -14,7 +14,7 @@ https://github.com/litespeedtech/lsquic-client 에 많은 내용이 잘 기술�
 아직은 arm아키텍쳐의 장치에서만 작동합니다.
 
 ## How to use it
-Since my application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.
+Since this application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.
 It is really simple to use. Initialize LSQUIC object, then use finishCmd() or finish()
 
 usage example1:
