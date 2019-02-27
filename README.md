@@ -1,21 +1,20 @@
 # LSQUIC-for-android-implementation
 This is the implementation of litespeedtech's lsquic-client on Android.
 
-이 프로젝트는 litespeedtech사의 lsquic-client를 안드로이드에 이식시킨 것 입니다.
-
 ## Description
-This is the implementation of litespeedtech's lsquic-client on Android.
-For more information, see https://github.com/litespeedtech/lsquic-client
-This is only tested arm architecture.
+This is the implementation of litespeedtech's lsquic-client on Android.<br/>
+For more information, see https://github.com/litespeedtech/lsquic-client<br/>
+It only works on the ARM architecture yet.
 
+#### What is QUIC?
+> QUIC (pronounced 'quick') is an experimental transport layer network protocol initially designed, implemented, and deployed by Google  in 2012, and announced publicly in 2012 as experimentation broadened.<br/>
+> In October 2018, the IETF's HTTP and QUIC Working Group made an official request to rename the protocol HTTP/3 in advance of making it a worldwide standard. (From Wikipedia)
 
-이 프로젝트는 litespeedtech사의 lsquic-client를 안드로이드에 이식시킨 것 입니다.
-https://github.com/litespeedtech/lsquic-client 에 많은 내용이 잘 기술되어 있습니다.
-아직은 arm아키텍쳐의 장치에서만 작동합니다.
+[This](https://www.chromium.org/quic) is a good description of QUIC
 
 ## How to use it
-Since this application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.
-It is really simple to use. Initialize LSQUIC object, then use finishCmd() or finish()
+Since this application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.<br/>
+It is simple to use. Initialize LSQUIC object, then use finishCmd() or finish().
 
 usage example1:
 ```Java
@@ -42,8 +41,7 @@ if (result.equals("")) {
 }
 webview.loadData(result, "text/html", "utf-8");   // Initialize your WebView before
 ```
-I'm not recommand use lsquic.finish(). because it is still in limited use. It is recommended to be used after being supplemented later.
-
+I'm not recommand use lsquic.finish(). because it is still in limited use. It is recommended to be used after being supplemented later.<br/>
 Examples of use are well documented at https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt
 
 
