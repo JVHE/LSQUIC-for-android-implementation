@@ -4,7 +4,7 @@ This is the implementation of litespeedtech's lsquic-client on Android.
 ## Description
 This is the implementation of litespeedtech's lsquic-client on Android.<br/>
 For more information, see https://github.com/litespeedtech/lsquic-client<br/>
-It only works on the ARM architecture yet.
+It only works on ARM architecture yet.
 
 #### What is QUIC?
 > QUIC (pronounced 'quick') is an experimental transport layer network protocol initially designed, implemented, and deployed by Google  in 2012, and announced publicly in 2012 as experimentation broadened.<br/>
@@ -16,7 +16,7 @@ It only works on the ARM architecture yet.
 Since this application has wrapped the http_client bin file of lsquic-client, it works by giving the command of http_client.<br/>
 It is simple to use. Initialize LSQUIC object, then use finishCmd() or finish().
 
-usage example1:
+usage example 1:
 ```Java
 LSQUIC lsquic = new LSQUIC();
 // lsquic.finishCmd returns all response string including headers
@@ -28,7 +28,7 @@ if (result.equals("")) {
 }
 webview.loadData(result, "text/html", "utf-8");   // Initialize your WebView before
 ```
-usage example2:
+usage example 2:
 ```Java
 LSQUIC lsquic = new LSQUIC();
 lsquic.setUrl("www.google.com");
@@ -41,7 +41,7 @@ if (result.equals("")) {
 }
 webview.loadData(result, "text/html", "utf-8");   // Initialize your WebView before
 ```
-I'm not recommand use lsquic.finish(). because it is still in limited use. It is recommended to be used after being supplemented later.<br/>
+I don't recommend use lsquic.finish() because it is still in limited use. It is recommended to be used after being supplemented later.<br/>
 Examples of use are well documented at https://github.com/litespeedtech/lsquic-client/blob/master/EXAMPLES.txt
 
 
